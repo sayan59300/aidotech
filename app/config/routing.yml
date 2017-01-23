@@ -1,0 +1,7 @@
+aidotech_core:
+    resource: "@AidotechCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
