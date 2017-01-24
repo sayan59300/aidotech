@@ -6,8 +6,10 @@
     {% block stylesheets %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" type="text/css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" type="text/css" /><link rel="stylesheet" href="http://local.framework.dev:8888/public/resources/css/style.css" type="text/css" />
-    <link rel="icon" href="http://local.framework.dev:8888/public/resources/images/icone.png" />
+    <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" type="text/css" />
+    <link rel="stylesheet" href="http://local.framework.dev:8888/public/resources/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="icon" href="{{ asset('images/icone.png') }}" />
     {% endblock %}
     <title>{% block title %}Aidotech{% endblock %}</title>
   </head>
@@ -79,13 +81,7 @@
       <!-- Bannière -->
         <div class="row">
           <div class="col-md-12" id="banniere">
-            <div id="sitename">
-              Aidotech
-            </div>
-            <br/>
-            <div id="sitetitle">
-              Un problème -> La solution
-            </div>
+            <h1><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span id="text_titre"> Aidotech<br/>Un problème <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> La solution</span></h1>
           </div>
         </div>
       </header>
@@ -127,6 +123,8 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous" ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" ></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" ></script>
+    <script src="{{ asset('js/functions.js') }}"></script>
+    <script src="{{ asset('js/validation.js') }}"></script>
     {% endblock %}
   </body>
 </html>
