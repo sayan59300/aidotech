@@ -16,68 +16,71 @@
   <body>
     <div class="container-fluid">
       <header>
-      <!-- Navbar -->
-      <div class="row">
-        <div class="col-md-12">
-          <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <span class="navbar-brand">
-                  <img alt="Brand" src="{{ asset('images/icone.png') }}">
-                </span>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ path('aidotech_core_homepage') }}">Accueil</a>
-              </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li><a href="#">Lien</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion du site <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Lien</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="">Administration</a></li>
-                      <li><a href="">Administrer les utilisateurs</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Recherche">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Rechercher</button>
-                </form>
-                <!-- si utilisateur connecté -->
-                <form name="formLogout" method="post" action="" class="navbar-form navbar-right">
-                  <div class="form-group">
-                    Bienvenue nom prénom, <a class="btn btn-success" href="">Profil</a>
-                  </div>
-                  <button name="deconnexion" type="submit" class="btn btn-danger">Déconnexion</button>
-                </form>
-                <!-- sinon -->
-                <form name="formLogin" method="post" action="" class="navbar-form navbar-right">
-                <a class="btn btn-default" href="">Inscription</a>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <button name="connexion" type="submit" class="btn btn-primary">Se connecter</button>
+        <!-- Navbar -->
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <span class="navbar-brand">
+                    <img alt="Brand" src="{{ asset('images/icone.png') }}">
+                  </span>
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="{{ path('aidotech_core_homepage') }}">Accueil</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">Lien</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion du site <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Lien</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="">Administration</a></li>
+                        <li><a href="">Administrer les utilisateurs</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Recherche">
                     </div>
-                  </div>
-                </form>
-                <!-- fin si -->
-              </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-          </nav>
+                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                  </form>
+                  <!-- si utilisateur connecté -->
+                  {% if app.session.get("auth") %}
+                    <form name="formLogout" method="post" action="" class="navbar-form navbar-right">
+                      <div class="form-group">
+                        Bienvenue nom prénom, <a class="btn btn-success" href="">Profil</a>
+                      </div>
+                      <button name="deconnexion" type="submit" class="btn btn-danger">Déconnexion</button>
+                    </form>
+                    <!-- sinon -->
+                  {% else %}
+                    <form name="formLogin" method="post" action="" class="navbar-form navbar-right">
+                      <a class="btn btn-default" href="">Inscription</a>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <button name="connexion" type="submit" class="btn btn-primary">Se connecter</button>
+                        </div>
+                      </div>
+                    </form>
+                    <!-- fin si -->
+                  {% endif %}
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+          </div>
         </div>
-      </div>
-      <!-- Fin navbar -->
-      <!-- Bannière -->
+        <!-- Fin navbar -->
+        <!-- Bannière -->
         <div class="row">
           <div class="col-md-12" id="banniere">
             <h1><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span><span id="text_titre"> Aidotech<br/>Un problème <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> La solution</span></h1>
@@ -101,7 +104,7 @@
         </div>
       </section>
       <footer>
-      <!-- Pied de page -->
+        <!-- Pied de page -->
         <section class="row">
           <div class="col-md-12" id="pied">
             &copy; Aidotech 2016 tous droits réservés - 
@@ -115,15 +118,15 @@
             </a>
           </div>
         </section>
-      <!-- Fin pied de page -->
+        <!-- Fin pied de page -->
       </footer>
     </div>
     {% block javascripts %}
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous" ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" ></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" ></script>
-    <script src="{{ asset('js/functions.js') }}"></script>
-    <script src="{{ asset('js/validation.js') }}"></script>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous" ></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" ></script>
+      <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" ></script>
+      <script src="{{ asset('js/functions.js') }}"></script>
+      <script src="{{ asset('js/validation.js') }}"></script>
     {% endblock %}
   </body>
 </html>
