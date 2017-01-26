@@ -5,50 +5,12 @@
 {% endblock %}
 
 {% block body %}
+
 <div>
   <h1>Formulaire de contact</h1>
   <hr />
-  <form name="contactForm" method="post" action="">
-    <label for="nom">Votre nom</label>
-    <div class="row">
-      <div class="col-md-3">
-        <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrez votre nom" value="{{ app.session.get("nom_contact") }}"/>
-      </div>
-    </div>
-    <br/>
-    <label for="prenom">Votre prénom</label>
-    <div class="row">
-      <div class="col-md-3">
-        <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Entrez votre prénom" value="{{ app.session.get("prenom_contact") }}"/>
-      </div>
-    </div>
-    <br/>
-    <label for="email">Votre email</label>
-    <div class="row">
-      <div class="col-md-3">
-        <input type="email" name="email" class="form-control" id="email" placeholder="Entrez votre email" value="{{ app.session.get("email_contact") }}"/>
-      </div>
-    </div>
-    <br/>
-    <label for="objet">Objet</label>
-    <div class="row">
-      <div class="col-md-5">
-        <input type="text" name="objet" class="form-control" id="objet" placeholder="Objet du message" value="{{ app.session.get("objet_contact") }}"/>
-      </div>
-    </div>
-    <br/>
-    <label for="textarea">Votre message</label>
-    <div class="row">
-      <div class="col-md-5">
-        <textarea rows="10" name="message" class="form-control" id="message" placeholder="Tapez votre message">{{ app.session.get("message_contact") }}</textarea>
-      </div>
-    </div>
-    <br/>
-    <div class="row">
-      <div class="col-md-3">
-        <input type="submit" name="envoyer" value="Envoyer" class="btn btn-primary" />
-      </div>
-    </div>
-  </form>
-</div>
+  {% form_theme contactForm 'bootstrap_3_horizontal_layout.html.twig' %}
+  {{ form_start(contactForm) }}
+  {{ form_widget(contactForm) }}
+  {{ form_end(contactForm) }}
 {% endblock %}
