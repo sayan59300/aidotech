@@ -7,11 +7,5 @@
 {% block body %}
   <h1>Formulaire de contact</h1>
   <hr />
-  <div class="col-md-8 col-md-offset-2">
-    {% form_theme contactForm 'bootstrap_3_layout.html.twig' %}
-    {{ form_start(contactForm) }}
-    {{ form_widget(contactForm) }}
-    <button type="submit" id="form_envoyer" name="form[envoyer]" class="btn-primary btn">Envoyer votre message</button>
-    {{ form_end(contactForm) }}
-  </div>
+  {{ include("AidotechCoreBundle:Form:ContactForm.html.twig") }}
 {% endblock %}

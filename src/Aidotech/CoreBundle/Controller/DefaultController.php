@@ -4,9 +4,7 @@ namespace Aidotech\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Aidotech\CoreBundle\Form\ContactType;
 
 class DefaultController extends Controller {
 
@@ -15,21 +13,14 @@ class DefaultController extends Controller {
   }
 
   public function contactAction(Request $request) {
-    $form = $this->createFormBuilder();
-    $form->add('nom', TextType::class, ['label' => 'Votre nom'])
-        ->add('prenom', TextType::class, ['label' => 'Votre prénom'])
-        ->add('email', EmailType::class, ['label' => 'Votre email'])
-        ->add('objet', TextType::class, ['label' => 'Objet du message'])
-        ->add('message', TextareaType::class);
-    $finalForm = $form->getForm();
-
+    $form = $this->createForm(ContactType::class);
     return $this->render('AidotechCoreBundle:Default:contact.html.twig', array(
-        'contactForm' => $finalForm->createView()
+        'contactForm' => $form->createView()
     ));
   }
 
   public function mentionsAction() {
-    return $this->render('AidotechCoreBundle:Default:mentions-legales.html.twig');
+    return $this->render('AidotechCoreBundle:Default:mentionsLegales.html.twig');
   }
 
 }
