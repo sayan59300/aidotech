@@ -29,7 +29,7 @@ class ContactForm {
    * email
    * @var string
    * @Assert\NotBlank(message="Pour que nous puissions vous répondre, l'email ne peut pas être vide")
-   * @Assert\Email(message="L'email est invalide")
+   * @Assert\Email(message="L'email est invalide", checkMX=true)
    */
   private $email;
   
