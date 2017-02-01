@@ -89,14 +89,14 @@
       </header>
       <!-- Fin bannière -->
       <section>
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+          <div class="alert alert-info col-md-10 col-md-offset-1">
+            {{ flashMessage }}
+          </div>
+        {% endfor %}
         <div class="row">
           <!-- Corps de page -->
           <div class="col-md-12" id="corps">
-            {% for flashMessage in app.session.flashbag.get('notice') %}
-              <div class="alert alert-info col-md-10 col-md-offset-1">
-                {{ flashMessage }}
-              </div>
-            {% endfor %}
             {% block body %}
             {% endblock %}
           </div>
