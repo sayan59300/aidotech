@@ -1,1 +1,17 @@
 {% extends "AidotechCoreBundle::layout.html.twig" %}
+
+{% block body %}
+  {% for key, messages in app.session.flashbag.all() %}
+    {% for message in messages %}
+      <div class="alert alert-{{ key }}">
+        {{ message|trans({}, 'FOSUserBundle') }}
+      </div>
+    {% endfor %}
+  {% endfor %}
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      {% block fos_user_content %}
+      {% endblock fos_user_content %}
+    </div>
+  </div>
+{% endblock %}

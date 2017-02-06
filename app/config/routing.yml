@@ -1,7 +1,3 @@
-aidotech_user:
-    resource: "@AidotechUserBundle/Resources/config/routing.yml"
-    prefix:   /user
-
 aidotech_core:
     resource: "@AidotechCoreBundle/Resources/config/routing.yml"
     prefix:   /
