@@ -55,20 +55,21 @@
                     <button type="submit" class="btn btn-primary">Rechercher</button>
                   </form>
                   <!-- si utilisateur connecté -->
-                  {% if app.session.get("auth") %}
+                  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <form name="formLogout" method="post" action="" class="navbar-form navbar-right">
                       <div class="form-group">
-                        Bienvenue nom prénom, <a class="btn btn-success" href="">Profil</a>
+                        Bienvenue {{ app.user.username }}, 
+                        <a class="btn btn-primary" href="{{ path('fos_user_profile_edit') }}">Editer votre profil</a>
                       </div>
-                      <button name="deconnexion" type="submit" class="btn btn-danger">Déconnexion</button>
+                      <a class="btn btn-danger" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>
                     </form>
                     <!-- sinon -->
                   {% else %}
                     <form name="formLogin" method="post" action="" class="navbar-form navbar-right">
-                      <a class="btn btn-default" href="">Inscription</a>
+                      <a class="btn btn-default" href="{{ path('fos_user_registration_register') }}">Inscription</a>
                       <div class="form-group">
                         <div class="input-group">
-                          <button name="connexion" type="submit" class="btn btn-primary">Se connecter</button>
+                          <a class="btn btn-primary" href="{{ path('fos_user_security_login') }}">Se connecter</a>
                         </div>
                       </div>
                     </form>
