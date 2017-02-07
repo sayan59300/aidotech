@@ -58,7 +58,8 @@
                   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <form name="formLogout" method="post" action="" class="navbar-form navbar-right">
                       <div class="form-group">
-                        Bienvenue {{ app.user.username }}, <a class="btn btn-success" href="{{ path('fos_user_profile_show') }}">Profil</a>
+                        Bienvenue {{ app.user.username }}, 
+                        <a class="btn btn-primary" href="{{ path('fos_user_profile_edit') }}">Editer votre profil</a>
                       </div>
                       <a class="btn btn-danger" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>
                     </form>

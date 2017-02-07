@@ -75,6 +75,12 @@ swiftmailer:
     
 # FOSUserBundle Configuration
 fos_user:
-    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    db_driver: orm
     firewall_name: main
     user_class: Aidotech\UserBundle\Entity\User
+    registration:
+        form:
+            type: Aidotech\UserBundle\Form\RegistrationType
+    profile:
+        form:
+            type: Aidotech\UserBundle\Form\ProfileType
