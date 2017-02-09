@@ -3,9 +3,10 @@
 namespace Aidotech\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ContactType extends AbstractType {
@@ -20,7 +21,8 @@ class ContactType extends AbstractType {
         ->add('email', EmailType::class, ['label' => 'Votre email*'])
         ->add('objet', TextType::class, ['label' => 'Objet du message*'])
         ->add('message', TextareaType::class, ['label' => 'Votre message*',
-            'attr' => array('rows' => '10')]);
+            'attr' => array('rows' => '10')])
+        ->add('envoyer', SubmitType::class);
   }
 
 }

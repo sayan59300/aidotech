@@ -6,6 +6,6 @@
   {{ form_row(contactForm.email) }}
   {{ form_row(contactForm.objet) }}
   {{ form_row(contactForm.message) }}
-  <button type="submit" id="contact_envoyer" name="contact[envoyer]" class="btn-primary btn">Envoyer votre message</button>
+  {{ form_widget(contactForm.envoyer, {'attr': {'class': 'btn btn-primary'}}) }}
   {{ form_end(contactForm) }}
 </div>
