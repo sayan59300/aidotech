@@ -7,5 +7,6 @@
   {{ form_row(contactForm.objet) }}
   {{ form_row(contactForm.message) }}
   {{ form_widget(contactForm.envoyer, {'attr': {'class': 'btn btn-primary'}}) }}
+  {{ form_rest(contactForm) }}
   {{ form_end(contactForm) }}
 </div>
