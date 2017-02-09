@@ -3,14 +3,16 @@
 namespace Aidotech\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 /**
  * reseau
  *
  * @ORM\Table(name="reseau")
- * @ORM\Entity(repositoryClass="Aidotech\AppBundle\Repository\reseauRepository")
+ * @ORM\Entity(repositoryClass="Aidotech\AppBundle\Repository\ReseauRepository")
  */
-class reseau
+class Reseau
 {
     /**
      * @var int
@@ -27,6 +29,14 @@ class reseau
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
+    
+    /**
+     * @var int
+     * 
+     * @ManyToOne(targetEntity="Aidotech\AppBundle\Entity\TypeReseau")
+     * @JoinColumn(nullable=false)
+     */
+    private $type;
 
 
     /**
@@ -62,5 +72,28 @@ class reseau
     {
         return $this->nom;
     }
-}
 
+    /**
+     * Set type
+     *
+     * @param \Aidotech\AppBundle\Entity\TypeReseau $type
+     *
+     * @return Reseau
+     */
+    public function setType(\Aidotech\AppBundle\Entity\TypeReseau $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \Aidotech\AppBundle\Entity\TypeReseau
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+}

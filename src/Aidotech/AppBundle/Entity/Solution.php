@@ -3,14 +3,16 @@
 namespace Aidotech\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 /**
  * solution
  *
  * @ORM\Table(name="solution")
- * @ORM\Entity(repositoryClass="Aidotech\AppBundle\Repository\solutionRepository")
+ * @ORM\Entity(repositoryClass="Aidotech\AppBundle\Repository\SolutionRepository")
  */
-class solution
+class Solution
 {
     /**
      * @var int
@@ -27,6 +29,14 @@ class solution
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
+    
+    /**
+     * @var type
+     * 
+     * @ManyToOne(targetEntity="Aidotech\AppBundle\Entity\Panne")
+     * @JoinColumn(nullable=false)
+     */
+    private $panne;
 
 
     /**
@@ -62,5 +72,28 @@ class solution
     {
         return $this->description;
     }
-}
 
+    /**
+     * Set panne
+     *
+     * @param \Aidotech\AppBundle\Entity\Panne $panne
+     *
+     * @return Solution
+     */
+    public function setPanne(\Aidotech\AppBundle\Entity\Panne $panne)
+    {
+        $this->panne = $panne;
+
+        return $this;
+    }
+
+    /**
+     * Get panne
+     *
+     * @return \Aidotech\AppBundle\Entity\Panne
+     */
+    public function getPanne()
+    {
+        return $this->panne;
+    }
+}
