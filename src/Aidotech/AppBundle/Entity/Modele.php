@@ -35,8 +35,16 @@ class Modele {
    * 
    * @ManyToOne(targetEntity="Aidotech\AppBundle\Entity\Marque")
    * @JoinColumn(nullable=false)
-)   */
+   */
   private $marque;
+  
+  /**
+   * @var int
+   * 
+   * @ManyToOne(targetEntity="Aidotech\AppBundle\Entity\TypeModele")
+   * @JoinColumn(nullable=false)
+   */
+  private $type;
 
   /**
    * Get id
@@ -91,4 +99,28 @@ class Modele {
     return $this->marque;
   }
 
+
+    /**
+     * Set type
+     *
+     * @param \Aidotech\AppBundle\Entity\TypeModele $type
+     *
+     * @return Modele
+     */
+    public function setType(\Aidotech\AppBundle\Entity\TypeModele $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \Aidotech\AppBundle\Entity\TypeModele
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }

@@ -33,10 +33,18 @@ class Modele {
   /**
    * @var string
    * 
-   * @ManyToOne(targetEntity="Aidotech\AppBundle\Repository\Entity\Marque")
+   * @ManyToOne(targetEntity="Aidotech\AppBundle\Entity\Marque")
    * @JoinColumn(nullable=false)
-)   */
+   */
   private $marque;
+  
+  /**
+   * @var int
+   * 
+   * @ManyToOne(targetEntity="Aidotech\AppBundle\Entity\TypeModele")
+   * @JoinColumn(nullable=false)
+   */
+  private $type;
 
   /**
    * Get id
