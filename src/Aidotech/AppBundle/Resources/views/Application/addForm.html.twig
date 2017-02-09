@@ -1,0 +1,58 @@
+<h3>Formulaire d'ajout de panne</h3>
+<hr/>
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+  {{ form_errors(form) }}
+  <div class="form-group">
+    {{ form_label(form.titre, "Titre", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.titre) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form_label(form.description, "Description", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.description) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.description) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form_label(form.user, "Technicien", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.user) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.user) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form_label(form.application, "Application", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.application) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.application) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form_label(form.systemeExploitation, "Système d'exploitation", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.systemeExploitation) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.systemeExploitation) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form_label(form.modele, "Modèle", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.modele) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.modele) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ form_label(form.reseau, "Réseau", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.reseau) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.reseau) }}
+    </div>
+  </div>
+ {{ form_widget(form.enregistrer, {'attr': {'class': 'btn btn-primary'}}) }} 
+ {{ form_rest(form) }}
+  {{ form_end(form) }}
+</div>
