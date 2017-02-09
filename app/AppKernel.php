@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Aidotech\CoreBundle\AidotechCoreBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Aidotech\UserBundle\AidotechUserBundle(),
+            new Aidotech\AppBundle\AidotechAppBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

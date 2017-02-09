@@ -1,0 +1,3 @@
+aidotech_app_homepage:
+    path:     /
+    defaults: { _controller: AidotechAppBundle:Default:index }
