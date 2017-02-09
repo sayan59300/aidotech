@@ -22,7 +22,7 @@ class ContactType extends AbstractType {
         ->add('objet', TextType::class, ['label' => 'Objet du message*'])
         ->add('message', TextareaType::class, ['label' => 'Votre message*',
             'attr' => array('rows' => '10')])
-        ->add('envoyer', SubmitType::class);
+        ->add('envoyer', SubmitType::class, ['label' => 'Envoyer votre message']);
   }
 
 }
