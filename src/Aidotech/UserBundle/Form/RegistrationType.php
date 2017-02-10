@@ -12,7 +12,9 @@ class RegistrationType extends AbstractType {
    * {@inheritdoc}
    */
   public function buildForm(FormBuilderInterface $builder, array $options) {
-    $builder->add('telephone', TextType::class, ['label' => 'Numéro de téléphone']);
+    $builder->add('telephone', TextType::class, ['label' => 'Numéro de téléphone'])
+        ->add('nom', TextType::class, ['label' => 'Nom'])
+        ->add('prenom', TextType::class, ['label' => 'Prénom']);
   }
 
   public function getParent() {

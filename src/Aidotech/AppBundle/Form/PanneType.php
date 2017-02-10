@@ -22,17 +22,21 @@ class PanneType extends AbstractType {
         ->add('description', TextareaType::class, ['attr' => array('rows' => '10')])
         ->add('user')
         ->add('application', EntityType::class, [
-            'class' => 'AidotechAppBundle:Application', 
+            'class' => 'AidotechAppBundle:Application',
+            'placeholder' => '',
             'choice_label' => function ($application) {
-                return $application->getEditeur() . ' ' .
-                    $application->getNom() . ' ' . $application->getVersion();
+                return $application->getNom() . ' ' 
+                    . $application->getVersion() . ' ('
+                    . $application->getEditeur() . ')';
             }
         ])
         ->add('systemeExploitation', EntityType::class, [
-            'class' => 'AidotechAppBundle:SystemeExploitation', 
+            'class' => 'AidotechAppBundle:SystemeExploitation',
+            'placeholder' => '',
             'choice_label' => function ($systemeExploitation) {
-                return $systemeExploitation->getEditeur() . ' ' .
-                    $systemeExploitation->getNom() . ' ' . $systemeExploitation->getVersion();
+                return $systemeExploitation->getNom() . ' ' 
+                    . $systemeExploitation->getVersion() . ' (' 
+                    . $systemeExploitation->getEditeur() . ')' ;
             }
         ])
         ->add('modele', ChoiceType::class)
