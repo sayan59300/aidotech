@@ -2,11 +2,12 @@
 
 namespace Aidotech\AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Aidotech\AppBundle\Entity\Application;
 
-class LoadApplication implements FixtureInterface {
+class LoadApplication extends AbstractFixture implements OrderedFixtureInterface {
 
   public function load(ObjectManager $manager) {
     $apps = [
@@ -25,6 +26,10 @@ class LoadApplication implements FixtureInterface {
       $manager->persist($application);
     }
     $manager->flush();
+  }
+  
+  public function getOrder() {
+    return 1;
   }
 
 }

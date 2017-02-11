@@ -2,11 +2,12 @@
 
 namespace Aidotech\AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Aidotech\AppBundle\Entity\Marque;
 
-class LoadMarque implements FixtureInterface {
+class LoadMarque extends AbstractFixture implements OrderedFixtureInterface {
 
   public function load(ObjectManager $manager) {
     $marques = [
@@ -23,6 +24,10 @@ class LoadMarque implements FixtureInterface {
       $manager->persist($marque);
     }
     $manager->flush();
+  }
+  
+  public function getOrder() {
+    return 1;
   }
 
 }
