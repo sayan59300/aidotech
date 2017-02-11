@@ -48,12 +48,6 @@
                       </ul>
                     </li>
                   </ul>
-                  <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Recherche">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Rechercher</button>
-                  </form>
                   <!-- si utilisateur connecté -->
                   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <form name="formLogout" method="post" action="" class="navbar-form navbar-right">

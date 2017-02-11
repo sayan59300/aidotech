@@ -15,7 +15,7 @@ class ApplicationController extends Controller {
     
     if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
       $request->getSession()->getFlashBag()->add('notice', 'Nouvelle panne enregistrée');
-      return $this->redirectToRoute('aidotech_app_add');
+      return $this->redirectToRoute('aidotech_app_homepage');
     }
     
     return $this->render('AidotechAppBundle:Application:add.html.twig', [

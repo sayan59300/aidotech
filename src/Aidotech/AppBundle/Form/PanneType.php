@@ -9,7 +9,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PanneType extends AbstractType {
 
@@ -36,11 +35,27 @@ class PanneType extends AbstractType {
             'choice_label' => function ($systemeExploitation) {
                 return $systemeExploitation->getNom() . ' ' 
                     . $systemeExploitation->getVersion() . ' (' 
-                    . $systemeExploitation->getEditeur() . ')' ;
+                    . $systemeExploitation->getEditeur() . ')';
             }
         ])
-        ->add('modele', ChoiceType::class)
-        ->add('reseau', ChoiceType::class)
+        ->add('modele', EntityType::class, [
+            'class' => 'AidotechAppBundle:Modele',
+            'placeholder' => '',
+            'choice_label' => function ($modele) {
+                return $modele->getType() . ' ' 
+                    . $modele->getNom() . ' (' 
+                    . $modele->getMarque() . ')';
+            }
+        ])
+        ->add('reseau', EntityType::class, [
+            'class' => 'AidotechAppBundle:Reseau',
+            'placeholder' => '',
+            'choice_label' => function ($reseau) {
+                return $reseau->getNom() . ' (' 
+                    . $reseau->getType() . ')';
+            }
+        ])
+        ->add('solution', TextareaType::class, ['attr' => array('rows' => '10')])
         ->add('enregistrer', SubmitType::class);
   }
 

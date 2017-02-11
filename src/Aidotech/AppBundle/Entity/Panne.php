@@ -73,8 +73,11 @@ class Panne {
   private $reseau;
 
   /**
-   * @var int
+   * @var string
+   *
+   * @ORM\Column(name="solution", type="string", length=255)
    */
+  private $solution;
 
   /**
    * Get id
@@ -129,124 +132,136 @@ class Panne {
     return $this->description;
   }
 
+  /**
+   * Set user
+   *
+   * @param \Aidotech\UserBundle\Entity\User $user
+   *
+   * @return Panne
+   */
+  public function setUser(\Aidotech\UserBundle\Entity\User $user) {
+    $this->user = $user;
 
-    /**
-     * Set user
-     *
-     * @param \Aidotech\UserBundle\Entity\User $user
-     *
-     * @return Panne
-     */
-    public function setUser(\Aidotech\UserBundle\Entity\User $user)
-    {
-        $this->user = $user;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get user
+   *
+   * @return \Aidotech\UserBundle\Entity\User
+   */
+  public function getUser() {
+    return $this->user;
+  }
 
-    /**
-     * Get user
-     *
-     * @return \Aidotech\UserBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+  /**
+   * Set application
+   *
+   * @param \Aidotech\AppBundle\Entity\Application $application
+   *
+   * @return Panne
+   */
+  public function setApplication(\Aidotech\AppBundle\Entity\Application $application = null) {
+    $this->application = $application;
 
-    /**
-     * Set application
-     *
-     * @param \Aidotech\AppBundle\Entity\Application $application
-     *
-     * @return Panne
-     */
-    public function setApplication(\Aidotech\AppBundle\Entity\Application $application = null)
-    {
-        $this->application = $application;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get application
+   *
+   * @return \Aidotech\AppBundle\Entity\Application
+   */
+  public function getApplication() {
+    return $this->application;
+  }
 
-    /**
-     * Get application
-     *
-     * @return \Aidotech\AppBundle\Entity\Application
-     */
-    public function getApplication()
-    {
-        return $this->application;
-    }
+  /**
+   * Set systemeExploitation
+   *
+   * @param \Aidotech\AppBundle\Entity\SystemeExploitation $systemeExploitation
+   *
+   * @return Panne
+   */
+  public function setSystemeExploitation(\Aidotech\AppBundle\Entity\SystemeExploitation $systemeExploitation = null) {
+    $this->systemeExploitation = $systemeExploitation;
 
-    /**
-     * Set systemeExploitation
-     *
-     * @param \Aidotech\AppBundle\Entity\SystemeExploitation $systemeExploitation
-     *
-     * @return Panne
-     */
-    public function setSystemeExploitation(\Aidotech\AppBundle\Entity\SystemeExploitation $systemeExploitation = null)
-    {
-        $this->systemeExploitation = $systemeExploitation;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get systemeExploitation
+   *
+   * @return \Aidotech\AppBundle\Entity\SystemeExploitation
+   */
+  public function getSystemeExploitation() {
+    return $this->systemeExploitation;
+  }
 
-    /**
-     * Get systemeExploitation
-     *
-     * @return \Aidotech\AppBundle\Entity\SystemeExploitation
-     */
-    public function getSystemeExploitation()
-    {
-        return $this->systemeExploitation;
-    }
+  /**
+   * Set modele
+   *
+   * @param \Aidotech\AppBundle\Entity\Modele $modele
+   *
+   * @return Panne
+   */
+  public function setModele(\Aidotech\AppBundle\Entity\Modele $modele = null) {
+    $this->modele = $modele;
 
-    /**
-     * Set modele
-     *
-     * @param \Aidotech\AppBundle\Entity\Modele $modele
-     *
-     * @return Panne
-     */
-    public function setModele(\Aidotech\AppBundle\Entity\Modele $modele = null)
-    {
-        $this->modele = $modele;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get modele
+   *
+   * @return \Aidotech\AppBundle\Entity\Modele
+   */
+  public function getModele() {
+    return $this->modele;
+  }
 
-    /**
-     * Get modele
-     *
-     * @return \Aidotech\AppBundle\Entity\Modele
-     */
-    public function getModele()
-    {
-        return $this->modele;
-    }
+  /**
+   * Set reseau
+   *
+   * @param \Aidotech\AppBundle\Entity\Reseau $reseau
+   *
+   * @return Panne
+   */
+  public function setReseau(\Aidotech\AppBundle\Entity\Reseau $reseau = null) {
+    $this->reseau = $reseau;
 
-    /**
-     * Set reseau
-     *
-     * @param \Aidotech\AppBundle\Entity\Reseau $reseau
-     *
-     * @return Panne
-     */
-    public function setReseau(\Aidotech\AppBundle\Entity\Reseau $reseau = null)
-    {
-        $this->reseau = $reseau;
+    return $this;
+  }
 
-        return $this;
-    }
+  /**
+   * Get reseau
+   *
+   * @return \Aidotech\AppBundle\Entity\Reseau
+   */
+  public function getReseau() {
+    return $this->reseau;
+  }
 
-    /**
-     * Get reseau
-     *
-     * @return \Aidotech\AppBundle\Entity\Reseau
-     */
-    public function getReseau()
-    {
-        return $this->reseau;
-    }
+  /**
+   * Set solution
+   *
+   * @param string $solution
+   *
+   * @return Panne
+   */
+  public function setSolution($solution) {
+    $this->solution = $solution;
+
+    return $this;
+  }
+
+  /**
+   * Get solution
+   *
+   * @return string
+   */
+  public function getSolution() {
+    return $this->solution;
+  }
+
 }
