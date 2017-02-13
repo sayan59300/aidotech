@@ -1,0 +1,14 @@
+{% extends "AidotechAppBundle::layout.html.twig" %}
+
+{% block body %}
+  <h3>Application</h3>
+  <a href="{{ path('aidotech_app_add') }}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter une solution d'incident</a>
+  <hr/>
+  
+  <form method="post" action="">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Recherche">
+    </div>
+    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Rechercher</button>
+  </form>
+{% endblock %}

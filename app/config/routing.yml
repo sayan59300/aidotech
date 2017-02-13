@@ -1,3 +1,7 @@
+aidotech_app:
+    resource: "@AidotechAppBundle/Resources/config/routing.yml"
+    prefix:   /application
+
 aidotech_core:
     resource: "@AidotechCoreBundle/Resources/config/routing.yml"
     prefix:   /
