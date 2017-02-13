@@ -23,6 +23,7 @@ class PanneType extends AbstractType {
         ->add('application', EntityType::class, [
             'class' => 'AidotechAppBundle:Application',
             'placeholder' => '',
+            'required'    => false,
             'choice_label' => function ($application) {
                 return $application->getNom() . ' ' 
                     . $application->getVersion() . ' ('
@@ -32,6 +33,7 @@ class PanneType extends AbstractType {
         ->add('systemeExploitation', EntityType::class, [
             'class' => 'AidotechAppBundle:SystemeExploitation',
             'placeholder' => '',
+            'required'    => false,
             'choice_label' => function ($systemeExploitation) {
                 return $systemeExploitation->getNom() . ' ' 
                     . $systemeExploitation->getVersion() . ' (' 
@@ -41,6 +43,7 @@ class PanneType extends AbstractType {
         ->add('modele', EntityType::class, [
             'class' => 'AidotechAppBundle:Modele',
             'placeholder' => '',
+            'required'    => false,
             'choice_label' => function ($modele) {
                 return $modele->getType() . ' ' 
                     . $modele->getNom() . ' (' 
@@ -50,6 +53,7 @@ class PanneType extends AbstractType {
         ->add('reseau', EntityType::class, [
             'class' => 'AidotechAppBundle:Reseau',
             'placeholder' => '',
+            'required'    => false,
             'choice_label' => function ($reseau) {
                 return $reseau->getNom() . ' (' 
                     . $reseau->getType() . ')';
