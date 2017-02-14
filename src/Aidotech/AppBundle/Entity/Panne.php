@@ -5,6 +5,8 @@ namespace Aidotech\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Panne
@@ -27,13 +29,15 @@ class Panne {
    * @var string
    *
    * @ORM\Column(name="titre", type="string", length=255)
+   * @Assert\Length(min=2,max=255)
    */
   private $titre;
 
   /**
    * @var string
    *
-   * @ORM\Column(name="description", type="string", length=255)
+   * @ORM\Column(name="description", type="text")
+   * @Assert\Length(min=2,max=500)
    */
   private $description;
 
@@ -75,7 +79,8 @@ class Panne {
   /**
    * @var string
    *
-   * @ORM\Column(name="solution", type="string", length=255)
+   * @ORM\Column(name="solution", type="text")
+   * @Assert\Length(min=2,max=500)
    */
   private $solution;
 
